@@ -45,14 +45,14 @@
                     };
 
             // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
-            mm_lalt_under: mm_lalt_under {
+        /*    mm_lalt_under: mm_lalt_under {
                     compatible = "zmk,behavior-mod-morph";
                     label = "lalt_under";
                     #binding-cells = <0>;
                     bindings = <&kp LALT>, <&kp UNDER>;
                     mods = <(MOD_RSFT)>;
                     masked_mods = <(MOD_LALT)|(MOD_RSFT)>;
-                    };
+                    }; */
             };
 
         keymap {
