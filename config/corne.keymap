@@ -7,47 +7,51 @@
 
 / {
         behaviors {
-            xmrk: x_mrk {               // EXAMATION MARK ? -> !  DETECTS: RSFT + QMARK, SENDS: RSFT + N1
+            mm_qmrk_xmrk: mm_qmrk_xmrk {   // EXAMATION MARK ? -> !  DETECTS: RSFT + QMARK, SENDS: RSFT + N1
                     compatible = "zmk,behavior-mod-morph";
-                    label = "XMRK";
+                    label = "qmrk_xmrk";
                     #binding-cells = <0>;
                     bindings = <&kp QMARK>, <&kp EXCL>;
                     mods = <(MOD_RSFT)>;
                     };
 
-            scol: s_col {             // SEMI-COLON  , -> ; DETECTS RSFT + COMMA, SUPPRESSES SHIFT & SENDS: SEMI (;)
+            // SEMI-COLON  , -> ; DETECTS RSFT + COMMA, SUPPRESSES SHIFT & SENDS: SEMI (;)
+            mm_comma_semi: mm_comma_semi {
                     compatible = "zmk,behavior-mod-morph";
-                    label = "SCOL";
+                    label = "comma_semi";
                     #binding-cells = <0>;
                     bindings = <&kp COMMA>, <&kp SEMI>;
                     mods = <(MOD_RSFT)>;
                     masked_mods = <(MOD_RSFT)>;
                     };
 
-            ecol: e_col {             // COLON . -> :  DETECTS: RSFT + DOT, SENDS: RSFT + COLON (:)
+            // COLON . -> :  DETECTS: RSFT + DOT, SENDS: RSFT + COLON (:)
+            mm_dot_colon: mm_dot_colon {
                     compatible = "zmk,behavior-mod-morph";
-                    label = "ECOL";
+                    label = "dot_colon";
                     #binding-cells = <0>;
                     bindings = <&kp DOT>, <&kp COLON>;
                     mods = <(MOD_RSFT)>;
                     };
 
-            fslh: f_slh {              // FORWARD SLASH & -> /  DETECTS: RSFT + AMPS, SUPPRESSES SHIFT & SENDS: FSLH
+            // FORWARD SLASH & -> /  DETECTS: RSFT + AMPS, SUPPRESSES SHIFT & SENDS: FSLH
+            mm_amps_fslh: mm_amps_fslh {
                     compatible = "zmk,behavior-mod-morph";
-                    label = "FSLH";
+                    label = "amps_fslh";
                     #binding-cells = <0>;
                     bindings = <&kp AMPS>, <&kp FSLH>;
                     mods = <(MOD_RSFT)>;
                     masked_mods = <(MOD_RSFT)>;
                     };
 
-            uscr: u_scr {             // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
+            // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
+            mm_lalt_under: mm_lalt_under {
                     compatible = "zmk,behavior-mod-morph";
-                    label = "USCR";
+                    label = "lalt_under";
                     #binding-cells = <0>;
                     bindings = <&kp LALT>, <&kp UNDER>;
                     mods = <(MOD_RSFT)>;
-                    masked_mods = <(MOD_LALT) | (MOD_RSFT)>;
+                    masked_mods = <(MOD_LALT)|(MOD_RSFT)>;
                     };
             };
 
