@@ -52,7 +52,7 @@
                     #binding-cells = <0>;
                     bindings = <&kp LALT>, <&kp UNDER>;
                     mods = <(MOD_RSFT)>;
-                    masked_mods = <(MOD_RSHFT) | (MOD_LALT)>
+                    masked_mods = <(MOD_RSHFT) | (MOD_LALT)>;
                     };
             };
 
