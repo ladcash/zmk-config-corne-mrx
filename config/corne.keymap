@@ -8,58 +8,58 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define BASE   0                    // primary layer with most frequently typed keys
+// #define BASE   0                    // primary layer with most frequently typed keys
 
 / {
-        behaviors {
-            xmark: x_mark {         // EXAMATION ? -> !  DETECTS: RSFT + QMARK, SENDS: RSFT + N1
-            compatible = "zmk,behavior-mod-morph";
-            label = "X_MARK";
-            #binding-cells = <0>;
-            bindings = <&kp QMARK>, <&kp EXCL>;
-            mods = <(MOD_RSFT)>;
-            };
+       /* behaviors {
+            xmrk: x_mrk {               // EXAMATION MARK ? -> !  DETECTS: RSFT + QMARK, SENDS: RSFT + N1
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "XMRK";
+                    #binding-cells = <0>;
+                    bindings = <&kp QMARK>, <&kp EXCL>;
+                    mods = <(MOD_RSFT)>;
+                    };
 
-        scoli: s_coli {             // SEMI-COLON  , -> ; DETECTS RSFT + COMMA, SUPPRESSES SHIFT & SENDS: SEMI (;)
-            compatible = "zmk,behavior-mod-morph";
-            label = "S_COLI";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_RSFT)>;
-            masked_mods = <(MOD_RSFT)>;
-            };
+            scol: s_col {             // SEMI-COLON  , -> ; DETECTS RSFT + COMMA, SUPPRESSES SHIFT & SENDS: SEMI (;)
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "SCOL";
+                    #binding-cells = <0>;
+                    bindings = <&kp COMMA>, <&kp SEMI>;
+                    mods = <(MOD_RSFT)>;
+                    masked_mods = <(MOD_RSFT)>;
+                    };
 
-        ecoli: e_coli {             // COLON . -> :  DETECTS: RSFT + DOT, SENDS: RSFT + COLON (:)
-            compatible = "zmk,behavior-mod-morph";
-            label = "E_COLI";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_RSFT)>;
-            };
+            ecol: e_col {             // COLON . -> :  DETECTS: RSFT + DOT, SENDS: RSFT + COLON (:)
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "ECOL";
+                    #binding-cells = <0>;
+                    bindings = <&kp DOT>, <&kp COLON>;
+                    mods = <(MOD_RSFT)>;
+                    };
 
-        f_slash {                   // FORWARD SLASH & -> /  DETECTS: RSFT + AMPS, SUPPRESSES SHIFT & SENDS: FSLH
-            compatible = "zmk,behavior-mod-morph";
-            label = "F_SLSH";
-            #binding-cells = <0>;
-            bindings = <&kp AMPS>, <&kp FSLH>;
-            mods = <(MOD_RSFT)>;
-            masked_mods = <(MOD_RSFT)>;
-            };
+            fslh: f_slh {              // FORWARD SLASH & -> /  DETECTS: RSFT + AMPS, SUPPRESSES SHIFT & SENDS: FSLH
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "FSLH";
+                    #binding-cells = <0>;
+                    bindings = <&kp AMPS>, <&kp FSLH>;
+                    mods = <(MOD_RSFT)>;
+                    masked_mods = <(MOD_RSFT)>;
+                    };
 
-        uscor: u_scor {             // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
-                compatible = "zmk,behavior-mod-morph";
-                label = "U_SCOR";
-                #binding-cells = <0>;
-                bindings = <&kp LALT>, <&kp UNDER>;
-                mods = <(MOD_RSFT)>;
-                masked_mods = <(MOD_RSHFT) | (MOD_LALT)>
-                };
-            };
+            uscr: u_scr {             // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "USCR";
+                    #binding-cells = <0>;
+                    bindings = <&kp LALT>, <&kp UNDER>;
+                    mods = <(MOD_RSFT)>;
+                    masked_mods = <(MOD_RSHFT) | (MOD_LALT)>
+                    };
+            }; */
 
         keymap {
                 compatible = "zmk,keymap";
 
-                base_layer {
+                default_layer {
 
 //     TAB      QMARK   COMMA    DOT        P      Y       M        L          D       C      F       DEL
 //  LALT UNDER   O        A       E         I      U       H        N          T       R      S       SQT
@@ -67,9 +67,9 @@
 //                          LCMD  LCNTRL  SPACE   RET     RET  RCNTRL SPACE   RCMD
 
                         bindings = <
-  &kp TAB        &kp QMARK  &kp COMMA  &kp DOT       &kp P    &kp Y   &kp M            &kp L    &kp D   &kp C   &kp F   &kp DEL
-  &ht LALT U_SCOR   &kp O    &kp A      &kp E        &kp I    &kp U   &kp H            &kp N    &kp T   &kp R   &kp S   &kp SQT
- &ht LSHFT CAPS   &kp AMPS   &kp X      &kp Q        &kp K    &kp J   &kp V            &kp B    &kp G   &kp W   &kp Z   &ht RSHFT CAPS
+  &kp TAB        &kp QMARK  &kp COMMA  &kp DOT      &kp P    &kp Y   &kp M            &kp L    &kp D   &kp C   &kp F   &kp BSPC
+  &ht LALT USCR   &kp O     &kp A      &kp E        &kp I    &kp U   &kp H            &kp N    &kp T   &kp R   &kp S   &kp SQT
+ &ht LSHFT CAPS   &kp AMPS  &kp X      &kp Q        &kp K    &kp J   &kp V            &kp B    &kp G   &kp W   &kp Z   &ht RSHFT CAPS
                           &kp RCMD  &ht RCTRL SPC  &kp RET  &kp RET   &ht LCTRL SPACE  &kp LCMD
                         >;
                 };
