@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-        behaviors {
+        /* behaviors {
             mm_qmrk_xmrk: mm_qmrk_xmrk {   // EXAMATION MARK ? -> !  DETECTS: RSFT + QMARK, SENDS: RSFT + N1
                     compatible = "zmk,behavior-mod-morph";
                     label = "qmrk_xmrk";
@@ -45,15 +45,15 @@
                     };
 
             // UNDERSCORE -> _  DETECTS: RSFT + LALT, SUPPRESSES LALT & SENDS: UNDER
-        /*    mm_lalt_under: mm_lalt_under {
+            mm_lalt_under: mm_lalt_under {
                     compatible = "zmk,behavior-mod-morph";
                     label = "lalt_under";
                     #binding-cells = <0>;
                     bindings = <&kp LALT>, <&kp UNDER>;
                     mods = <(MOD_RSFT)>;
-                    masked_mods = <(MOD_LALT)|(MOD_RSFT)>;
-                    }; */
-            };
+                    masked_mods = <(MOD_LALT)|(MOD_RSFT)>; // don't send tapped modifier or held modifier
+                    };
+            }; */
 
         keymap {
                 compatible = "zmk,keymap";
