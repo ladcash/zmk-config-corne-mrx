@@ -17,7 +17,7 @@
 / {
     behaviors {
 /// SHIFTED KEYS BEHAVIORS
-        tab_dllr: tab_dollar {
+        td: tab_dollar {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
                 bindings = <&kp TAB>, <&kp DLLR>;       // detects RSFT+TAB, morphs to DLLR
@@ -32,7 +32,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;               // detects RSFT (was mods = <(MOD_LSFT|MOD_RSFT)>; why both?)
             keep-mods = <(MOD_LSFT)>;                   // sends LSPC+DEL (was: keep-mods = <(MOD_RSFT)>; why keep?) */
     };
-        qmrk_xmrk: question_exclamation {
+        qm: question_exclaim {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
                 bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
