@@ -149,7 +149,7 @@
                          LCMD|RCNTRL   SPACE|to_numb   RET     RET   SPACE|to_symb    RCMD|RCNTRL   */
 
     bindings = <
-    &tab_dllr   &qmrk_xmrk  &kp COMMA   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
+    &td         &qm         &kp COMMA   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
     &LALT       &kp O       &kp A       &kp E     &kp I    &kp U    &kp H    &kp N    &kp T    &kp R    &kp S   &kp SQT
     &LSFT       &kp AMPS    &kp X       &kp Q     &kp K    &kp J    &kp V    &kp B    &kp G    &kp W    &kp Z   &kp RSFT
                             &kp RCMD    &kp RCTRL   &kp RET  &kp RET  &kp LCTRL   &kp LCMD
