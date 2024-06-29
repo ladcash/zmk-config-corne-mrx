@@ -16,10 +16,11 @@
 
 / {
     behaviors {
-/// SHIFTED KEYS BEHAVIORS
+// SHIFTED KEYS BEHAVIORS
         td: tab_dollar {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
+                NAME = TAB_
                 bindings = <&kp TAB>, <&kp DLLR>;       // detects RSFT+TAB, morphs to DLLR
                 mods = <(MOD_RSFT)>;                    // the modifier
                 keep-mods = <(MOD_RSFT)>;               // doesn't eat it? */
@@ -69,7 +70,7 @@
                 mods = <(MOD_RSFT)>;                    // detects RSFT
                 masked_mods = <(MOD_RSFT)>;             // suppresses RSFT & sends FORWARD SLASH
                 };
-///     SHIFT KEY BEHAVIORS
+//     SHIFT KEY BEHAVIORS
         caps_sent:  caps_sentence{                       // turns caps word into caps-sentence
                 compatible = "zmk,behavior-caps-word";
                 #binding-cells = <0>;
@@ -93,7 +94,7 @@
                 flavor = "tap-preferred";
                 bindings = <&kp caps_sent>, <&osk RSHFT>;
                 };
-///     SPACE KEY BEHAVIORS
+//      SPACE KEY BEHAVIORS
          lsp_num: left_space_number {                   // key >1-sec press: to number layer
                 compatible = "zmk,behavior-hold-tap";   // tap: space typed
                 #binding-cells = <2>;                   // 2nd press: return to zombie layer
@@ -110,7 +111,7 @@
                 flavor = "tap-preferred";
                 bindings = <&to WOLFMAN>, <&kp SPACE>;
                 };
-///     COMMAND KEY BEHAVIORS
+//      COMMAND KEY BEHAVIORS
         lng_stky: long_sticky_key {                     // next key wait time extended to 2-sec
                 compatible = "zmk,behavior-sticky-key";
                 #binding-cells = <1>;
@@ -138,7 +139,7 @@
 */
     };
 
-        keymap {
+       / keymap {
                 compatible = "zmk-keymap";
 
                 default_layer {
