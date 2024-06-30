@@ -20,7 +20,7 @@
         td: tab_dollar {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
-                NAME = TAB_DOLLAR
+                NAME = TD;
                 bindings = <&kp TAB>, <&kp DLLR>;       // detects RSFT+TAB, morphs to DLLR
                 mods = <(MOD_RSFT)>;                    // the modifier
                 keep-mods = <(MOD_RSFT)>;               // doesn't eat it? */
@@ -37,6 +37,7 @@
         qm: question_exclaim {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
+                name = QM;
                 bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
                 mods = <(MOD_RSFT)>;                    // detect RSFT
                 keep-mods = <(MOD_RSFT)>;               // sends RSFT+N1
