@@ -20,15 +20,16 @@
         td: tab_dollar {
                 compatible = "zmk,behavior-mod-morph";
                 #binding-cells = <0>;
-                NAME = TAB_
+                NAME = TAB_DOLLAR
                 bindings = <&kp TAB>, <&kp DLLR>;       // detects RSFT+TAB, morphs to DLLR
                 mods = <(MOD_RSFT)>;                    // the modifier
                 keep-mods = <(MOD_RSFT)>;               // doesn't eat it? */
                 };
 
-/*        bsp_dele: backspace_delete {
+/*        bd: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
+            NAME = BACKSPACE_DELETE
             bindings = <&kp BACKSPACE>, <&kp DELETE>;   // detects BSPC & substitutes DEL
             mods = <(MOD_LSFT|MOD_RSFT)>;               // detects RSFT (was mods = <(MOD_LSFT|MOD_RSFT)>; why both?)
             keep-mods = <(MOD_LSFT)>;                   // sends LSPC+DEL (was: keep-mods = <(MOD_RSFT)>; why keep?) */
