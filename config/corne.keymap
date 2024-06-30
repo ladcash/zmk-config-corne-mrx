@@ -15,134 +15,131 @@
         #define vDOT    0x24
 
 / {
-    behaviors {
-// SHIFTED KEYS BEHAVIORS
-        td: tab_dollar {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp TAB>, <&kp DLLR>;       // detects RSFT+TAB, morphs to DLLR
-                mods = <(MOD_RSFT)>;                    // the modifier
-                keep-mods = <(MOD_RSFT)>;               // doesn't eat it? */
-                };
+        behaviors {
+                // SHIFTED KEYS BEHAVIORS
+                td: tab_dollar {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp TAB>, <&kp DLLR>;           // detects RSFT+TAB, morphs to DLLR
+                    mods = <(MOD_RSFT)>;                        // the modifier
+                    keep-mods = <(MOD_RSFT)>;                   // doesn't eat it? */
+                    };
+                qm: question_exclaim {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
+                    mods = <(MOD_RSFT)>;                    // detect RSFT
+                    keep-mods = <(MOD_RSFT)>;               // sends RSFT+N1
+                    };
+            };
 
-/*        bd: backspace_delete {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            NAME = BACKSPACE_DELETE
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;   // detects BSPC & substitutes DEL
-            mods = <(MOD_LSFT|MOD_RSFT)>;               // detects RSFT (was mods = <(MOD_LSFT|MOD_RSFT)>; why both?)
-            keep-mods = <(MOD_LSFT)>;                   // sends LSPC+DEL (was: keep-mods = <(MOD_RSFT)>; why keep?) */
-    };
-        qm: question_exclaim {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
-                mods = <(MOD_RSFT)>;                    // detect RSFT
-                keep-mods = <(MOD_RSFT)>;               // sends RSFT+N1
-                };
-/*
-        com_semi: com_semicolon {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp COMMA>, <&kp SEMI>;     // detects COMMA & substitutes SEMICOLON
-                mods = <(MOD_RSFT)>;                    // detects RSFT
-                masked_mods = <(MOD_RSFT)>;             // suppresses RSFT & SENDS SEMI
-                };
-        per_colo: period_colon {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp DOT>, <&kp SEMI>;       // detects PERIOD & substitutes SEMICOLON
-                mods = <(MOD_LSFT|MOD_RSFT)>;           // detects RSFT, sends LSFT
-                keep-mods = <(LSFT)>;                   // sends LSFT+SEMI};
-                }
-        alt_undr: left_alt_underscore {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp LALT>, <&kp DASH>;      // detects LALT, sends MINUS
-                mods = <(MOD_RSFT|MOD_LSFT)>;           // detects RSFT, sends LSFT
-                masked_mods = <(MOD_LALT)|(MOD_RSFT)>;  // don't send LALT
-                keep-mods = <(MOD_LSFT)>;               // send lsft
-                };
-        amp_fslh: ampersand_forward_slash {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp AMPS>, <&kp FSLH>;      // detects AMPERSAND & substitutes FORWARD SLASH
-                mods = <(MOD_RSFT)>;                    // detects RSFT
-                masked_mods = <(MOD_RSFT)>;             // suppresses RSFT & sends FORWARD SLASH
-                };
-//     SHIFT KEY BEHAVIORS
-        caps_sent:  caps_sentence{                       // turns caps word into caps-sentence
-                compatible = "zmk,behavior-caps-word";
-                #binding-cells = <0>;
-                mods = <(MOD_LSFT|MOD_RSFT)>;           // applies to both left & right shifts
-                continue-list = <SPACE>;                // don't deactivate caps for space
-                };
-        lsh_csen: left_shift_caps_sentence {            // tap: upper case next key (one shot key)
-                compatible = "zmk,behavior-hold-tap";   // 1-sec press: sentence caps turned on
-                label - "LSH_CSEN"                      // 2nd press: sentence caps turned off
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&tog caps_sent>, <&osk LSHFT>;
-                };
-         rsh_csen: right_shift_caps_sentence {          // tap: upper case next key (one shot key)
-                compatible = "zmk,behavior-hold-tap";   // 1-sec press: caps sentence (caps word + spaces)
-                #binding-cells = <2>;                   // 2nd press: release caps sentence
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&kp caps_sent>, <&osk RSHFT>;
-                };
-//      SPACE KEY BEHAVIORS
-         lsp_num: left_space_number {                   // key >1-sec press: to number layer
-                compatible = "zmk,behavior-hold-tap";   // tap: space typed
-                #binding-cells = <2>;                   // 2nd press: return to zombie layer
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&to FKNSTEIN>, <&kp SPACE>;
-                };
-        rsp_num: right_space_number {                   // >1-sec press: to number layer
-                compatible = "zmk,behavior-hold-tap";   // tap: space typed
-                #binding-cells = <2>;                   // 2nd press: return to zombie layer
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&to WOLFMAN>, <&kp SPACE>;
-                };
-//      COMMAND KEY BEHAVIORS
-        lng_stky: long_sticky_key {                     // next key wait time extended to 2-sec
-                compatible = "zmk,behavior-sticky-key";
-                #binding-cells = <1>;
-                bindings = <&kp>;
-                release-after-ms = <2000>;
-                quick-release;
-                /delete-property/ ignore-modifiers; // removes enabled by default property
-                };
-        lcmd_ctrl: left_command_control {               // hold: you are in command
-                compatible = "zmk,behavior-hold-tap";   // tap: control key (one shot key)
-                #binding-cells = <2>;                   // ends: after 2nd key typed
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&kp LCMD>, <&osk LCTRL>;
-                };
-        rcmd_ctrl: right_command_control {              // hold: you are still in command
-                compatible = "zmk,behavior-hold-tap";   // tap: control key (one shot key
-                #binding-cells = <2>;                   // ends: after 2nd key typed
-                tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&kp RCMD>, <&osk RCTRL>;
-                };
-*/
-    };
+/*       bd: backspace_delete {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp BACKSPACE>, <&kp DELETE>;   // detects BSPC & substitutes DEL
+                    mods = <(MOD_LSFT|MOD_RSFT)>;               // detects RSFT (was mods = <(MOD_LSFT|MOD_RSFT)>; why both?)
+                    keep-mods = <(MOD_LSFT)>;                   // sends LSPC+DEL (was: keep-mods = <(MOD_RSFT)>; why keep?)
+                    };
+             com_semi: com_semicolon {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp COMMA>, <&kp SEMI>;     // detects COMMA & substitutes SEMICOLON
+                    mods = <(MOD_RSFT)>;                    // detects RSFT
+                    masked_mods = <(MOD_RSFT)>;             // suppresses RSFT & SENDS SEMI
+                    };
+            per_colo: period_colon {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp DOT>, <&kp SEMI>;       // detects PERIOD & substitutes SEMICOLON
+                    mods = <(MOD_LSFT|MOD_RSFT)>;           // detects RSFT, sends LSFT
+                    keep-mods = <(LSFT)>;                   // sends LSFT+SEMI};
+                    }
+            alt_undr: left_alt_underscore {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp LALT>, <&kp DASH>;      // detects LALT, sends MINUS
+                    mods = <(MOD_RSFT|MOD_LSFT)>;           // detects RSFT, sends LSFT
+                    masked_mods = <(MOD_LALT)|(MOD_RSFT)>;  // don't send LALT
+                    keep-mods = <(MOD_LSFT)>;               // send lsft
+                    };
+            amp_fslh: ampersand_forward_slash {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp AMPS>, <&kp FSLH>;      // detects AMPERSAND & substitutes FORWARD SLASH
+                    mods = <(MOD_RSFT)>;                    // detects RSFT
+                    masked_mods = <(MOD_RSFT)>;             // suppresses RSFT & sends FORWARD SLASH
+                    };
+    //     SHIFT KEY BEHAVIORS
+            caps_sent:  caps_sentence{                       // turns caps word into caps-sentence
+                    compatible = "zmk,behavior-caps-word";
+                    #binding-cells = <0>;
+                    mods = <(MOD_LSFT|MOD_RSFT)>;           // applies to both left & right shifts
+                    continue-list = <SPACE>;                // don't deactivate caps for space
+                    };
+            lsh_csen: left_shift_caps_sentence {            // tap: upper case next key (one shot key)
+                    compatible = "zmk,behavior-hold-tap";   // 1-sec press: sentence caps turned on
+                    label - "LSH_CSEN"                      // 2nd press: sentence caps turned off
+                    #binding-cells = <2>;
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&tog caps_sent>, <&osk LSHFT>;
+                    };
+             rsh_csen: right_shift_caps_sentence {          // tap: upper case next key (one shot key)
+                    compatible = "zmk,behavior-hold-tap";   // 1-sec press: caps sentence (caps word + spaces)
+                    #binding-cells = <2>;                   // 2nd press: release caps sentence
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&kp caps_sent>, <&osk RSHFT>;
+                    };
+    //      SPACE KEY BEHAVIORS
+             lsp_num: left_space_number {                   // key >1-sec press: to number layer
+                    compatible = "zmk,behavior-hold-tap";   // tap: space typed
+                    #binding-cells = <2>;                   // 2nd press: return to zombie layer
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&to FKNSTEIN>, <&kp SPACE>;
+                    };
+            rsp_num: right_space_number {                   // >1-sec press: to number layer
+                    compatible = "zmk,behavior-hold-tap";   // tap: space typed
+                    #binding-cells = <2>;                   // 2nd press: return to zombie layer
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&to WOLFMAN>, <&kp SPACE>;
+                    };
+    //      COMMAND KEY BEHAVIORS
+            lng_stky: long_sticky_key {                     // next key wait time extended to 2-sec
+                    compatible = "zmk,behavior-sticky-key";
+                    #binding-cells = <1>;
+                    bindings = <&kp>;
+                    release-after-ms = <2000>;
+                    quick-release;
+                    /delete-property/ ignore-modifiers; // removes enabled by default property
+                    };
+            lcmd_ctrl: left_command_control {               // hold: you are in command
+                    compatible = "zmk,behavior-hold-tap";   // tap: control key (one shot key)
+                    #binding-cells = <2>;                   // ends: after 2nd key typed
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&kp LCMD>, <&osk LCTRL>;
+                    };
+            rcmd_ctrl: right_command_control {              // hold: you are still in command
+                    compatible = "zmk,behavior-hold-tap";   // tap: control key (one shot key
+                    #binding-cells = <2>;                   // ends: after 2nd key typed
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&kp RCMD>, <&osk RCTRL>;
+                    };
+        }; */
+    keymap {
+            compatible = "zmk-keymap";
 
-       / keymap {
-                compatible = "zmk-keymap";
-
-                default_layer {
+            default_layer {
 
 /*   TAB|$       QMARK|EXCL  COMMA|SEMI  DOT|COLON    P   |   Y       M      L     D      C      F      BSPC|DEL
      LALT|UNDER        O          A          E          I   |   U       H      N     T      R      S       SQT|DQT
@@ -157,4 +154,4 @@
                         >;
                 };
         };
-};
+    };
