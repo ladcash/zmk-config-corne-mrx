@@ -29,16 +29,15 @@
                     #binding-cells = <0>;
                     bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
                     mods = <(MOD_RSFT)>;                    // detect RSFT
-                    // keep-mods = <(MOD_RSFT)>;            // sends RSFT+N1
+                    keep-mods = <(MOD_RSFT)>;            // sends RSFT+N1
                     };
-            };
-                bsd: backspace_delete {
+/*                bsd: backspace_delete {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
                     bindings = <&kp BACKSPACE>, <&kp DELETE>;   // on RSFT or LSFT sends forward delete
                     mods = <(MOD_LSFT|MOD_RSFT)>;               // for either RSFT or LSFT
                     keep-mods = <(MOD_RSFT)>;
-                    }
+                    } */
 /*                csc: comma_semicolon {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
