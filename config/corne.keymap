@@ -22,7 +22,7 @@
                     #binding-cells = <0>;
                     bindings = <&kp TAB>, <&kp DASH>;           // detects RSFT+TAB, morphs to DASH
                     mods = <(MOD_RSFT)>;                        // the modifier
-                    // keep-mods = <(MOD_RSFT)>;                   // doesn't eat it? */
+                    keep-mods = <(MOD_RSFT)>;                   // doesn't eat it? */
                     };
                 qex: question_exclaim {
                     compatible = "zmk,behavior-mod-morph";
