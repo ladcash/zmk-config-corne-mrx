@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "zmk_config_mrx",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "zmk_config_mrx::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-zmk_config_mrx-Debug-384ed6b7687e9bfe825d.json",
+					"name" : "zmk_config_mrx",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/michaeloconnor/CLionProjects/keyboard_projects/Corne_ZMK/zmk-config-mrx/cmake-build-debug",
+		"source" : "/Users/michaeloconnor/CLionProjects/keyboard_projects/Corne_ZMK/zmk-config-mrx"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
