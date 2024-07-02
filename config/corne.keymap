@@ -16,12 +16,12 @@
     / {
         behaviors {
                 // SHIFTED KEYS 'SWITCHING PARTNERS' BEHAVIORS
-                tbd: tab_dash {
+                tbm: tab_minus {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
-                    bindings = <&kp TAB>, <&kp MINUS>;           // on RSFT morphs TAB to MINUS
-                    mods = <(MOD_RSFT)|<(MOD_LSFT)>;
-    //                keep-mods = <(MOD_RSFT)>;                 // doesn't eat RSFT
+                    bindings = <&kp TAB>, <&kp MINUS>;          // on RSFT morphs TAB to MINUS
+                    mods = <(MOD_RSFT)>;
+                    keep-mods = <(MOD_RSFT)>;                   // doesn't eat RSFT
                     };
                 qex: question_exclaim {
                     compatible = "zmk,behavior-mod-morph";
@@ -30,26 +30,26 @@
                     mods = <(MOD_RSFT)|(MOD_LSFT)>;
                     keep-mods = <(MOD_RSFT)>;                   // sends RSFT+N1
                     };
+                csc: comma_semicolon {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp COMMA>, <&kp SEMI>;     // on RSFT sends SEMI
+                    mods = <(MOD_RSFT)>;                    // RSFT only
+                    };
+                pcl: period_colon {
+                    compatible = "zmk,behavior-mod-morph";
+                    #binding-cells = <0>;
+                    bindings = <&kp DOT>, <&kp COLON>;     // colon for shifted period
+                    mods = <(MOD_LSFT|MOD_RSFT)>;          // LSFT only
+                    keep-mods = <(LSFT)>;
+                    };
                 bsd: backspace_delete {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
                     bindings = <&kp BACKSPACE>, <&kp DELETE>;   // on RSFT/LSFT+DELETE morphs output to 'forward delete'
                     mods = <(MOD_LSFT|MOD_RSFT)>;               // for either RSFT or LSFT
                     keep-mods = <(MOD_RSFT)>;
-                    }
-/*                csc: comma_semicolon {
-                    compatible = "zmk,behavior-mod-morph";
-                    #binding-cells = <0>;
-                    bindings = <&kp COMMA>, <&kp SEMI>;     // on RSFT sends SEMI
-                    mods = <(MOD_RSFT)>;                    // RSFT only
-                    }; */
-/*                pcl: period_colon {
-                    compatible = "zmk,behavior-mod-morph";
-                    #binding-cells = <0>;
-                    bindings = <&kp DOT>, <&kp COLON>;     // colon for shifted period
-                    mods = <(MOD_LSFT|MOD_RSFT)>;          // LSFT only
-                    keep-mods = <(LSFT)>;
-                    } */
+                    };
 /*                aus: alt_underscore {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
@@ -132,7 +132,6 @@
                 }
          keymap {
             compatible = "zmk-keymap";
-            // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
             default_layer {
 
 /*   TAB|-               QMARK|EXCL     COMMA|SEMI    DOT|COLON  P         Y            M        L    D    C    F        BSPC|DEL
@@ -140,8 +139,9 @@
      LSHFT|caps sentence  AMPS|FSLH          X           Q       K         J            V        B    G    W    Z  RSHFT|caps sentence
                          LCMD|LCNTRL   LSPACE|to_numb   RET     RET  RSPACE|to_symb  RCMD|RCNTRL
 */
+// added behaviors: tbm qex csc pcl bsd aus afs cse lcs rcs snl ssl lsk lcc rcc
                     bindings = <
-    &tbd tbd   &qm qex QMARK   &kp bsd   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
+    &tbm MINUS   &qex QMARK   &csc SEMI   &pcl COLON   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &bsd DELETE
     &kp LALT   &kp O     &kp A     &kp E     &kp I    &kp U    &kp H    &kp N    &kp T    &kp R    &kp S   &kp SQT
     &kp LSFT   &kp AMPS  &kp X     &kp Q     &kp K    &kp J    &kp V    &kp B    &kp G    &kp W    &kp Z   &kp RSFT
                             &kp RCMD    &kp RCTRL   &kp RET  &kp RET  &kp LCTRL   &kp LCMD
