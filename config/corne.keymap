@@ -14,7 +14,7 @@
 
 // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
     / {
-/*        behaviors {
+        behaviors {
                 // SHIFTED KEYS 'SWITCHING PARTNERS' BEHAVIORS
                 tbd: tab_dash {
                     compatible = "zmk,behavior-mod-morph";
@@ -22,7 +22,7 @@
                     bindings = <&kp TAB>, <&kp DASH>;           // on RSFT morphs TAB to DASH
                     mods = <(MOD_RSFT)|<(MOD_LSFT)>;
     //                keep-mods = <(MOD_RSFT)>;                 // doesn't eat RSFT
-                    }; */
+                    };
                 qex: question_exclaim {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
@@ -30,13 +30,13 @@
                     mods = <(MOD_RSFT)|(MOD_LSFT)>;
                     keep-mods = <(MOD_RSFT)>;                   // sends RSFT+N1
                     };
-/*                bsd: backspace_delete {
+                bsd: backspace_delete {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
                     bindings = <&kp BACKSPACE>, <&kp DELETE>;   // on RSFT/LSFT+DELETE morphs output to 'forward delete'
                     mods = <(MOD_LSFT|MOD_RSFT)>;               // for either RSFT or LSFT
                     keep-mods = <(MOD_RSFT)>;
-                    } */
+                    }
 /*                csc: comma_semicolon {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
@@ -141,7 +141,7 @@
                          LCMD|LCNTRL   LSPACE|to_numb   RET     RET  RSPACE|to_symb  RCMD|RCNTRL
 */
                     bindings = <
-    &tbd TAB   &qm qex QMRK   &kp bsd   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
+    &tbd tbd   &qm qex QMARK   &kp bsd   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
     &kp LALT   &kp O     &kp A     &kp E     &kp I    &kp U    &kp H    &kp N    &kp T    &kp R    &kp S   &kp SQT
     &kp LSFT   &kp AMPS  &kp X     &kp Q     &kp K    &kp J    &kp V    &kp B    &kp G    &kp W    &kp Z   &kp RSFT
                             &kp RCMD    &kp RCTRL   &kp RET  &kp RET  &kp LCTRL   &kp LCMD
