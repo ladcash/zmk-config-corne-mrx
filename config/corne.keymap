@@ -4,7 +4,7 @@
         #include <behaviors.dtsi>
         #include <dt-bindings/zmk/keys.h>
         #include <dt-bindings/zmk/bt.h>
-//      #include <dt-bindings/zmk/outputs.h>
+//        #include <dt-bindings/zmk/outputs.h>
 
 //      #define NUMBERS 0;
 //      #define NUMBERS 1;
@@ -14,26 +14,26 @@
 
 // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
     / {
-        behaviors {
+/*        behaviors {
                 // SHIFTED KEYS 'SWITCHING PARTNERS' BEHAVIORS
                 tbd: tab_dash {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
-                    bindings = <&kp TAB>, <&kp DASH>;           // detects RSFT+TAB, morphs to DASH
-                    mods = <(MOD_RSFT)>;                        // the modifier
-                    keep-mods = <(MOD_RSFT)>;                   // doesn't eat it?
-                    };
+                    bindings = <&kp TAB>, <&kp DASH>;           // on RSFT morphs TAB to DASH
+                    mods = <(MOD_RSFT)|<(MOD_LSFT)>;
+    //                keep-mods = <(MOD_RSFT)>;                 // doesn't eat RSFT
+                    }; */
                 qex: question_exclaim {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
-                    bindings = <&kp QMARK>, <&kp EXCL>;     // detect ?MARK, substitute N1
-                    mods = <(MOD_RSFT)>;                    // detect RSFT
-                    keep-mods = <(MOD_RSFT)>;            // sends RSFT+N1
+                    bindings = <&kp QMARK>, <&kp EXCL>;         // on RSFT+QMARK morphs output to  RSFT+N1
+                    mods = <(MOD_RSFT)|(MOD_LSFT)>;
+                    keep-mods = <(MOD_RSFT)>;                   // sends RSFT+N1
                     };
 /*                bsd: backspace_delete {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
-                    bindings = <&kp BACKSPACE>, <&kp DELETE>;   // on RSFT or LSFT sends forward delete
+                    bindings = <&kp BACKSPACE>, <&kp DELETE>;   // on RSFT/LSFT+DELETE morphs output to 'forward delete'
                     mods = <(MOD_LSFT|MOD_RSFT)>;               // for either RSFT or LSFT
                     keep-mods = <(MOD_RSFT)>;
                     } */
