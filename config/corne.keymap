@@ -6,15 +6,14 @@
         #include <dt-bindings/zmk/bt.h>
 //      #include <dt-bindings/zmk/outputs.h>
 
-//      #define ZOMBIES 0;
-//      #define FKNSTIN 1;
-//      #define WOLFMAN 2;
-//      #define TRGDITS 3;
+//      #define NUMBERS 0;
+//      #define NUMBERS 1;
+//      #define SYMBOLS 2;
+//      #define LOGICAL 3;
 //      #define MUMMY12 4;
-        #define vCOMMA  0X36;
-        #define vDOT    0x24
 
-/ {     // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
+// added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
+    / {
         behaviors {
                 // SHIFTED KEYS 'SWITCHING PARTNERS' BEHAVIORS
                 tbd: tab_dash {
@@ -65,7 +64,7 @@
                     mods = <(MOD_RSFT)>;                    // RSFT only
                     masked_mods = <(MOD_RSFT)>;             // suppresses RSFT for forward slash
                     }; */
-    //     SHIFT KEY 'CAPITAL' BEHAVIORS
+//     SHIFT KEY 'CAPITAL' BEHAVIORS
 /*            cse:  caps_sentence{                             // turns caps word into caps-sentence
                     compatible = "zmk,behavior-caps-word";
                     #binding-cells = <0>;
@@ -88,16 +87,16 @@
                     flavor = "tap-preferred";
                     bindings = <&kp caps_sent>, <&osk RSHFT>;
                     }; */
-/*          SPACE KEY 'TO LAYERS' BEHAVIORS
-            snl: left_space_to_number {                       // key >1-sec press numbers layer
+//         SPACE KEY 'TO LAYERS' BEHAVIORS
+/*            snl: left_space_to_number {                       // key >1-sec press numbers layer
                     compatible = "zmk,behavior-hold-tap";   // tap: space typed
                     #binding-cells = <2>;                   // 2nd press: return to zombie layer
                     tapping-term-ms = <150>;
                     quick-tap-ms = <0>;
                     flavor = "tap-preferred";
                     bindings = <&to NUMBERS>, <&kp SPACE>;
-                    };
-            ssl: right_space_to_symbol_layer {              // >1-sec pres to symbols & math layer
+                    }; */
+/*              ssl: right_space_to_symbol_layer {              // >1-sec pres to symbols & math layer
                     compatible = "zmk,behavior-hold-tap";   // tap: space typed
                     #binding-cells = <2>;                   // 2nd press: return to zombie layer
                     tapping-term-ms = <150>;
@@ -105,7 +104,7 @@
                     flavor = "tap-preferred";
                     bindings = <&to SYMBOLS>, <&kp SPACE>;
                     };  */
-    //      COMMAND KEY 'CONTROL' BEHAVIORS
+//           COMMAND KEY 'CONTROL' BEHAVIORS
  /*           lsk: long_sticky_key {                     // stretches 'press' time from 250->2,000ms
                     compatible = "zmk,behavior-sticky-key";
                     #binding-cells = <1>;
@@ -130,24 +129,23 @@
                     flavor = "tap-preferred";
                     bindings = <&kp RCMD>, <&osk RCTRL>;
                     }; */
-        };
-    keymap {
+                }
+         keymap {
             compatible = "zmk-keymap";
-
+            // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
             default_layer {
 
 /*   TAB|-               QMARK|EXCL     COMMA|SEMI    DOT|COLON  P         Y            M        L    D    C    F        BSPC|DEL
      LALT|UNDER               O              A           E       I         U            H        N    T    R    S        SQT|DQT
      LSHFT|caps sentence  AMPS|FSLH          X           Q       K         J            V        B    G    W    Z  RSHFT|caps sentence
-                         LCMD|LCNTRL   LSPACE|to_numb   RET     RET  RSPACE|to_symb  RCMD|RCNTRL   */
-
-    // added behaviors: tbd qex bsd csc pcl aus afs cse lcs rcs snl ssl lsk lcc rcc
-    bindings = <
-    &tbd TAB   &qm qex   &kp bsd   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
+                         LCMD|LCNTRL   LSPACE|to_numb   RET     RET  RSPACE|to_symb  RCMD|RCNTRL
+*/
+                    bindings = <
+    &tbd TAB   &qm qex QMRK   &kp bsd   &kp DOT   &kp P    &kp Y    &kp M    &kp L    &kp D    &kp C    &kp F   &kp BSPC
     &kp LALT   &kp O     &kp A     &kp E     &kp I    &kp U    &kp H    &kp N    &kp T    &kp R    &kp S   &kp SQT
     &kp LSFT   &kp AMPS  &kp X     &kp Q     &kp K    &kp J    &kp V    &kp B    &kp G    &kp W    &kp Z   &kp RSFT
                             &kp RCMD    &kp RCTRL   &kp RET  &kp RET  &kp LCTRL   &kp LCMD
-                        >;
+                            >;
+                        };
                 };
         };
-    };
