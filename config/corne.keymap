@@ -19,7 +19,7 @@
                 tbd: tab_dash {
                     compatible = "zmk,behavior-mod-morph";
                     #binding-cells = <0>;
-                    bindings = <&kp TAB>, <&kp DASH>;           // on RSFT morphs TAB to DASH
+                    bindings = <&kp TAB>, <&kp MINUS>;           // on RSFT morphs TAB to MINUS
                     mods = <(MOD_RSFT)|<(MOD_LSFT)>;
     //                keep-mods = <(MOD_RSFT)>;                 // doesn't eat RSFT
                     };
