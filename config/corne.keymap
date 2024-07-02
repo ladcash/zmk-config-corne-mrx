@@ -129,8 +129,8 @@
                     flavor = "tap-preferred";
                     bindings = <&kp RCMD>, <&osk RCTRL>;
                     }; */
-                }
-         keymap {
+                };
+        / keymap {
             compatible = "zmk-keymap";
             default_layer {
 
