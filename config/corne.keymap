@@ -42,7 +42,7 @@
     &kp LALT   &kp O     &kp A     &kp E     &kp I    &kp U    &kp H    &kp N    &kp T    &kp R    &kp S   &kp SQT
     &kp LSFT   &kp AMPS  &kp X     &kp Q     &kp K    &kp J    &kp V    &kp B    &kp G    &kp W    &kp Z   &kp RSFT
                             &kp RCMD    &kp RCTRL   &kp RET  &kp RET  &kp LCTRL   &kp LCMD
-                >
+                >;
             };
         };
     };
